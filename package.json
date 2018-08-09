@@ -1,0 +1,36 @@
+{
+  "name": "entrance-task-2-2",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Задание 2 ШРИ 18",
+  "main": "index.js",
+  "scripts": {
+    "stylelint": "stylelint 'sass/**/*.scss'",
+    "test": "npm run stylelint",
+    "start": "gulp serve"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nik-el/entrance-task-2-2.git"
+  },
+  "author": "Никита Литвиненко",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nik-el/entrance-task-2-2/issues"
+  },
+  "homepage": "https://github.com/nik-el/entrance-task-2-2#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.0.2",
+    "browser-sync": "^2.24.6",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.2.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^4.0.1",
+    "stylelint": "^9.4.0",
+    "stylelint-config-standard": "^18.2.0"
+  },
+  "dependencies": {}
+}
