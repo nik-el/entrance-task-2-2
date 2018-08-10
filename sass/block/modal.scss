@@ -1,0 +1,68 @@
+.modal {
+  display: none;
+  position: fixed;
+
+  top: 150px;
+  left: 50%;
+
+  width: 630px;
+
+  margin-left: -315px;
+}
+
+.modal__title {
+  margin: 0;
+  margin-bottom: 5px;
+
+  font-weight: bold;
+  font-size: 27px;
+}
+
+.modal__schedule {
+  font-size: 14px;
+  color: $color-dark-grey;
+}
+
+.modal--show {
+  display: block;
+}
+
+.modal__block {
+  min-height: 238px;
+  min-width: 630px;
+
+  margin-bottom: 20px;
+  padding: 25px;
+
+  background-color: $color-white;
+  border-radius: 20px;
+}
+
+.modal__buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__button {
+  width: 307px;
+  height: 60px;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  &--accept {
+    background-color: $color-orange;
+  }
+
+  &--accept:hover {
+    background-color: $color-dark-orange;
+  }
+
+  &--close {
+    background-color: $color-white;
+  }
+
+  &--close:hover {
+    background-color: $color-light-gray;
+  }
+}

@@ -1,0 +1,326 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+.body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 708px;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif; }
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.modal-wrapper {
+  display: none;
+  position: fixed;
+  overflow: auto;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(51, 51, 51, 0.5); }
+
+.button {
+  font-weight: bold;
+  font-size: 13px;
+  background-color: #f7f7f7;
+  border: 0;
+  border-radius: 20px;
+  cursor: pointer; }
+
+.page-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: 92px;
+  padding: 0 40px;
+  -webkit-box-shadow: 0 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px rgba(0, 0, 0, 0.1); }
+
+.page-header__logo {
+  width: 108px;
+  height: 27px;
+  background-image: url("https://yandex-shri-2018.github.io/entrance-task-2-2/guide/assets/%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%94%D0%BE%D0%BC@2x.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.page-header__nav {
+  margin: 0 52px; }
+
+.page-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin: 30px 40px;
+  margin-bottom: 0; }
+
+.page-main__line-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 30px; }
+
+.page-main__dashboard {
+  max-width: 630px;
+  margin-right: 25px; }
+
+.page-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 40px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 65px; }
+
+.page-footer__copyright {
+  font-size: 12px;
+  color: #858585; }
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 150px;
+  left: 50%;
+  width: 630px;
+  margin-left: -315px; }
+
+.modal__title {
+  margin: 0;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 27px; }
+
+.modal__schedule {
+  font-size: 14px;
+  color: #333; }
+
+.modal--show {
+  display: block; }
+
+.modal__block {
+  min-height: 238px;
+  min-width: 630px;
+  margin-bottom: 20px;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 20px; }
+
+.modal__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.modal__button {
+  width: 307px;
+  height: 60px;
+  font-size: 18px;
+  font-weight: bold; }
+  .modal__button--accept {
+    background-color: #ffd93e; }
+  .modal__button--accept:hover {
+    background-color: #ffcd00; }
+  .modal__button--close {
+    background-color: #fff; }
+  .modal__button--close:hover {
+    background-color: #f7f7f7; }
+
+.main-nav {
+  font-weight: bold;
+  font-size: 16px; }
+
+.main-nav__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 92px;
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+.main-nav__link {
+  display: block;
+  height: 100%;
+  padding: 5px 15px;
+  text-decoration: none;
+  color: #858585; }
+  .main-nav__link:hover {
+    color: #c00; }
+  .main-nav__link--active {
+    color: #333; }
+
+.main-nav--toggle {
+  display: none; }
+
+.dashboard {
+  -ms-flex-preferred-size: 630px;
+      flex-basis: 630px; }
+
+.dashboard__title {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 18px; }
+
+.summary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+  background: wheat;
+  border-radius: 20px; }
+
+.summary__now {
+  margin-right: 15px; }
+
+.summary__title {
+  font-weight: bold;
+  font-size: 27px;
+  margin: 0;
+  margin-bottom: 5px; }
+
+.summary__info {
+  margin: 0;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 14px; }
+
+.summary__weather-place {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 300;
+  color: #858585; }
+
+.summary__weather-temperature {
+  font-weight: bold;
+  font-size: 36px; }
+
+.summary__scenario {
+  margin-bottom: 15px; }
+
+.scenario {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 200px;
+  min-height: 120px;
+  padding: 15px;
+  border-radius: 20px;
+  background: #f7f7f7;
+  cursor: pointer; }
+
+.scenario__title {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+  margin-bottom: 5px; }
+
+.scenario__schedule {
+  font-size: 12px;
+  color: #858585;
+  margin: 0; }
+
+.favorite__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.favorite__title {
+  margin-bottom: 20px;
+  margin-right: 13px;
+  font-weight: bold;
+  font-size: 18px; }
+
+.favorite__scenarios {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+
+.favorite__devices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; }
+
+.favorite__scenario {
+  margin: 0 15px 15px 0; }
+
+.action-filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  padding: 0; }
+
+.action-filter__buttton {
+  font-weight: bold;
+  font-size: 13px;
+  padding: 8px 15px;
+  margin-right: 10px; }
+  .action-filter__buttton--active {
+    background-color: #ffd93e; }
+
+.footer-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12px; }
+
+.footer-nav__item {
+  padding: 4px 5px; }
+
+.footer-nav__link {
+  color: #858585; }
+
+.slide-control {
+  display: none; }

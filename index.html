@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/normalize.css">
   <title>Яндекс Дом</title>
 </head>
-<body>
+<body class="body">
 
   <header class="page-header">
-    <a class="page-header__logo-link" href="#" >
-      <img class="page-header__logo-image" src="" alt="Яндекс Домс">
+    <a class="page-header__logo" href="#" >
     </a>
 
     <nav class="main-nav page-header__nav">
@@ -18,7 +19,7 @@
 
       <ul class="main-nav__items">
         <li class="main-nav__item">
-          <a href="#" class="main-nav__link">
+          <a href="#" class="main-nav__link main-nav__link--active">
             Сводка
           </a>
         </li>
@@ -41,102 +42,113 @@
       Яндекс Дом. Панель управления «умным домом»
     </h1>
 
-    <!-- Главное -->
-    <section class="dashboard">
-      <h2 class="dashboard__title">Главное</h2>
+    <div class="page-main__line-wrapper">
 
-      <section class="summary dashboard__summary">
-        <h3 class="summary__title">Привет, Геннадий!</h3>
-        <p class="summary__info">Двери и окна закрыты, сигнализация включена</p>
 
-        <table class="summary__weather">
-          <tr>
-            <td class="summary__weather-place">
-               Дома
-            </td>
-            <td class="summary__weather-temperature">
-              +23
-            </td>
-          </tr>
-          <tr>
-            <td class="summary__weather-place">
-              За окном
-            </td>
-            <td class="summary__weather-temperature summary__weather-temperature--rain">
-              +19
-            </td>
-          </tr>
-        </table>
+      <!-- Главное -->
+      <section class="dashboard page-main__dashboard">
 
-        <div class="summary__scenarios">
-          <article class="scenario scenario--temperature">
-            <h3 class="scenario__title">
-              Philips Cooler
-            </h3>
-            <p class="scenario__schedule">Начнет охлаждать в 16:30</p>
-          </article>
+        <h2 class="dashboard__title">Главное</h2>
 
-          <article class="scenario scenario--sun">
-            <h3 class="scenario__title">
-              Xiaomi Yeesun LED Smart Bulb
-            </h3>
-            <p class="scenario__schedule">Включится в 17:00</p>
-          </article>
-        </div>
+        <section class="summary dashboard__summary">
+
+          <div class="summary__now">
+            <h3 class="summary__title">Привет, Геннадий!</h3>
+            <p class="summary__info">Двери и окна закрыты, сигнализация включена</p>
+
+            <table class="summary__weather">
+              <thead>
+              <tr>
+                <th class="summary__weather-place">
+                  Дома
+                </th>
+                <th class="summary__weather-place">
+                  За окном
+                </th>
+              </tr>
+              </thead>
+              <tr>
+                <td class="summary__weather-temperature">
+                  +23
+                </td>
+                <td class="summary__weather-temperature summary__weather-temperature--rain">
+                  +19
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="summary__scenarios">
+            <article class="scenario summary__scenario scenario--temperature ">
+              <h3 class="scenario__title">
+                Philips Cooler
+              </h3>
+              <p class="scenario__schedule">Начнет охлаждать в 16:30</p>
+            </article>
+
+            <!--<article class="scenario summary__scenario scenario&#45;&#45;sun">-->
+              <!--<h3 class="scenario__title">-->
+                <!--Xiaomi Yeesun LED Smart Bulb-->
+              <!--</h3>-->
+              <!--<p class="scenario__schedule">Включится в 17:00</p>-->
+            <!--</article>-->
+          </div>
+        </section>
+
       </section>
 
-    </section>
+      <!-- Сценарии-->
+      <section class="favorite page-main__favorite">
 
-    <!-- Сценарии-->
-    <section class="favorite">
+        <div class="favorite__header">
+          <h3 class="favorite__title">Избранные сценарии</h3>
 
-      <div class="favorite__header">
-        <h3 class="favorite__title">Избранные сценарии</h3>
-
-        <div class="favorite__slider slide-control">
-          <button class="slide-control__prev" type="button">Предыдущий сценарий</button>
-          <button class="slide-control__next" type="button">Следующий сценарий</button>
+          <div class="favorite__slider slide-control">
+            <button class="slide-control__prev" type="button">Предыдущий сценарий</button>
+            <button class="slide-control__next" type="button">Следующий сценарий</button>
+          </div>
         </div>
-      </div>
 
-      <div class="favorite__scenarios ">
+        <div class="favorite__scenarios">
 
-        <article class="scenario scenario--active scenario--sun">
-          <h3 class="scenario__title">
-            Выключить весь свет в доме и во дворе
-          </h3>
-        </article>
+          <article class="scenario favorite__scenario scenario--active scenario--sun">
+            <h3 class="scenario__title">
+              Выключить весь свет в доме и во дворе
+            </h3>
+          </article>
 
-        <article class="scenario scenario--time">
-          <h3 class="scenario__title">
-            Я ухожу
-          </h3>
-        </article>
+          <article class="scenario favorite__scenario scenario--time">
+            <h3 class="scenario__title">
+              Я ухожу
+            </h3>
+          </article>
 
-        <article class="scenario scenario--active scenario--sun">
-          <h3 class="scenario__title">
-            Включить свет в коридоре
-          </h3>
-        </article>
+          <article class="scenario favorite__scenario scenario--active scenario--sun">
+            <h3 class="scenario__title">
+              Включить свет в коридоре
+            </h3>
+          </article>
 
-        <article class="scenario scenario--active scenario--temperature">
-          <h3 class="scenario__title">
-            Набрать горячую ванну
-          </h3>
-          <p class="scenario__schedule">Начнётся в 18:00</p>
-        </article>
+          <article class="scenario favorite__scenario scenario--active scenario--temperature">
+            <h3 class="scenario__title">
+              Набрать горячую ванну
+            </h3>
+            <p class="scenario__schedule">Начнётся в 18:00</p>
+          </article>
 
-        <article class="scenario scenario--active scenario--temperature">
-          <h3 class="scenario__title">
-            Сделать пол тёплым во всей квартире
-          </h3>
-        </article>
-      </div>
+          <article class="scenario favorite__scenario scenario--active scenario--temperature">
+            <h3 class="scenario__title">
+              Сделать пол тёплым во всей квартире
+            </h3>
+          </article>
+        </div>
 
-    </section>
+      </section>
+
+    </div>
 
     <!-- Устройства -->
-    <section class="favorite">
+    <section class="favorite favorite--full">
 
       <div class="favorite__header">
         <h3 class="favorite__title">Избранные устройства</h3>
@@ -144,31 +156,31 @@
         <div class="favorite__filter">
           <ul class="action-filter">
             <li class="action-filter__item action-filter__item--active">
-              <button class="action-filter__buttton action-filter__buttton--active" type="button">
+              <button class="action-filter__buttton action-filter__buttton--active button" type="button">
                 Все
               </button>
             </li>
 
             <li class="action-filter__item">
-              <button class="action-filter__buttton" type="button">
+              <button class="action-filter__buttton button" type="button">
                 Кухня
               </button>
             </li>
 
             <li class="action-filter__item">
-              <button class="action-filter__buttton" type="button">
+              <button class="action-filter__buttton button" type="button">
                 Зал
               </button>
             </li>
 
             <li class="action-filter__item">
-              <button class="action-filter__buttton" type="button">
+              <button class="action-filter__buttton button" type="button">
                 Лампочки
               </button>
             </li>
 
             <li class="action-filter__item">
-              <button class="action-filter__buttton" type="button">
+              <button class="action-filter__buttton button" type="button">
                 Камеры
               </button>
             </li>
@@ -183,49 +195,49 @@
 
       <div class="favorite__devices">
 
-        <article class="scenario scenario--active scenario--sun">
+        <article class="scenario favorite__scenario scenario--active scenario--sun">
           <h3 class="scenario__title">
             Xiaomi Yeesun LED Smart Bulb
           </h3>
           <p class="scenario__schedule">Включено</p>
         </article>
 
-        <article class="scenario scenario--sun">
+        <article class="scenario favorite__scenario scenario--sun">
           <h3 class="scenario__title">
             D-Link Omna 180 Cam
           </h3>
           <p class="scenario__schedule">Включится в 17:00</p>
         </article>
 
-        <article class="scenario scenario--temperature">
+        <article class="scenario favorite__scenario scenario--temperature">
           <h3 class="scenario__title">
             Elgato Eve Degree Connected
           </h3>
           <p class="scenario__schedule">Выключено до 17:00</p>
         </article>
 
-        <article class="scenario scenario--sun">
+        <article class="scenario favorite__scenario scenario--sun">
           <h3 class="scenario__title">
             LIFX Mini Day & Dusk A60 E27
           </h3>
           <p class="scenario__schedule">Включится в 17:00</p>
         </article>
 
-        <article class="scenario scenario--active scenario--sun">
+        <article class="scenario favorite__scenario scenario--active scenario--sun">
           <h3 class="scenario__title">
             Xiaomi Mi Air Purifier 2S
           </h3>
           <p class="scenario__schedule">Включено</p>
         </article>
 
-        <article class="scenario scenario--sun">
+        <article class="scenario favorite__scenario scenario--sun">
           <h3 class="scenario__title">
             Philips Zhirui
           </h3>
           <p class="scenario__schedule">Выключено</p>
         </article>
 
-        <article class="scenario scenario--active scenario--temperature">
+        <article class="scenario favorite__scenario scenario--active scenario--temperature">
           <h3 class="scenario__title">
             «Доброе тепло»
           </h3>
@@ -238,7 +250,7 @@
 
   <footer class="page-footer">
 
-    <ul class="footer-nav">
+    <ul class="footer-nav page-footer__nav">
       <li class="footer-nav__item">
         <a href="#" class="footer-nav__link">Помощь</a>
       </li>
@@ -253,134 +265,137 @@
       </li>
     </ul>
 
-    <p class="footer-copyright">
+    <p class="page-footer__copyright">
       © 2001–2017  ООО «Яндекс»
     </p>
 
   </footer>
 
-  <!-- Xiaomi Warm Floor Modal-->
-  <section class="modal modal--temperature modal--active">
-    <div class="modal__block">
-      <div class="modal__header">
-        <h3 class="modal__title">Xiaomi Warm Floor</h3>
-        <p class="modal__schedule">Включено</p>
-        <p class="modal__temperature-mode"> +23</p>
+  <div class="modal-wrapper">
+    <!-- Xiaomi Warm Floor Modal-->
+    <section class="modal modal--temperature modal--active modal--show">
+      <div class="modal__block">
+        <div class="modal__header">
+          <h3 class="modal__title">Xiaomi Warm Floor</h3>
+          <p class="modal__schedule">Включено</p>
+          <p class="modal__temperature-mode"> +23</p>
+        </div>
+
+        <div class="toggle">
+          <!---->
+        </div>
       </div>
 
-      <div class="toggle">
-        <!---->
+      <div class="modal__buttons">
+        <button class="modal__button modal__button--accept button" type="button">
+          Применить
+        </button>
+        <button class="modal__button modal__button--close button" type="button">
+          Закрыть
+        </button>
       </div>
-    </div>
+    </section>
 
-    <div class="modal__buttons">
-      <button class="modal__button modal__button--accept" type="button">
-        Применить
-      </button>
-      <button class="modal__button modal__button--close" type="button">
-        Закрыть
-      </button>
-    </div>
-  </section>
+    <!--Elgato Eve Degree Connected Modal -->
+    <section class="modal modal--temperature modal--active">
+      <div class="modal__block">
+        <div class="modal__header">
+          <h3 class="modal__title">Elgato Eve Degree Connected</h3>
+          <p class="modal__schedule">Включено</p>
+          <p class="modal__temperature-mode"> +23</p>
+        </div>
 
-  <!--Elgato Eve Degree Connected Modal -->
-  <section class="modal modal--temperature modal--active">
-    <div class="modal__block">
-      <div class="modal__header">
-        <h3 class="modal__title">Elgato Eve Degree Connected</h3>
-        <p class="modal__schedule">Включено</p>
-        <p class="modal__temperature-mode"> +23</p>
-      </div>
+        <ul class="action-filter">
+          <li class="action-filter__item action-filter__item--active">
+            <button class="action-filter__buttton button" type="button">
+              Вручную
+            </button>
+          </li>
 
-      <ul class="action-filter">
-        <li class="action-filter__item action-filter__item--active">
-          <button class="action-filter__buttton" type="button">
-            Все
-          </button>
-        </li>
+          <li class="action-filter__item">
+            <button class="action-filter__buttton button" type="button">
+              Холодно
+            </button>
+          </li>
 
-        <li class="action-filter__item">
-          <button class="action-filter__buttton" type="button">
-            Холодно
-          </button>
-        </li>
+          <li class="action-filter__item">
+            <button class="action-filter__buttton button" type="button">
+              Тепло
+            </button>
+          </li>
 
-        <li class="action-filter__item">
-          <button class="action-filter__buttton" type="button">
-            Тепло
-          </button>
-        </li>
+          <li class="action-filter__item">
+            <button class="action-filter__buttton button" type="button">
+              Жарко
+            </button>
+          </li>
+        </ul>
 
-        <li class="action-filter__item">
-          <button class="action-filter__buttton" type="button">
-            Жарко
-          </button>
-        </li>
-      </ul>
-
-      <div class="toggle">
-        <!---->
-      </div>
-    </div>
-
-    <div class="modal__buttons">
-      <button class="modal__button modal__button--accept" type="button">
-        Применить
-      </button>
-      <button class="modal__button modal__button--close" type="button">
-        Закрыть
-      </button>
-    </div>
-  </section>
-
-  <!--Xiaomi Yeelight LED Smart Bulb Modal -->
-  <section class="modal modal--sun">
-    <div class="modal__block">
-      <div class="modal__header">
-        <h3 class="modal__title">Xiaomi Yeelight LED Smart Bulb</h3>
-        <p class="modal__schedule">Включится в 17:00</p>
+        <div class="toggle">
+          <!---->
+        </div>
       </div>
 
-      <ul class="action-filter">
-        <li class="action-filter__item action-filter__item--active">
-          <button class="action-filter__buttton action-filter__buttton--active" type="button">
-            Вручную
-          </button>
-        </li>
-
-        <li class="action-filter__item">
-          <button class="action-filter__buttton" type="button">
-            Дневной свет
-          </button>
-        </li>
-
-        <li class="action-filter__item">
-          <button class="action-filter__buttton" type="button">
-            Вечерний свет
-          </button>
-        </li>
-
-        <li class="action-filter__item">
-          <button class="action-filter__buttton" type="button">
-            Рассвет
-          </button>
-        </li>
-      </ul>
-
-      <div class="toggle">
-        <!---->
+      <div class="modal__buttons">
+        <button class="modal__button modal__button--accept button" type="button">
+          Применить
+        </button>
+        <button class="modal__button modal__button--close button" type="button">
+          Закрыть
+        </button>
       </div>
-    </div>
+    </section>
 
-    <div class="modal__buttons">
-      <button class="modal__button modal__button--accept" type="button">
-        Применить
-      </button>
-      <button class="modal__button modal__button--close" type="button">
-        Закрыть
-      </button>
-    </div>
-  </section>
+    <!--Xiaomi Yeelight LED Smart Bulb Modal -->
+    <section class="modal modal--sun ">
+      <div class="modal__block">
+        <div class="modal__header">
+          <h3 class="modal__title">Xiaomi Yeelight LED Smart Bulb</h3>
+          <p class="modal__schedule">Включится в 17:00</p>
+        </div>
+
+        <ul class="action-filter">
+          <li class="action-filter__item action-filter__item--active">
+            <button class="action-filter__buttton action-filter__buttton--active button" type="button">
+              Вручную
+            </button>
+          </li>
+
+          <li class="action-filter__item">
+            <button class="action-filter__buttton button" type="button">
+              Дневной свет
+            </button>
+          </li>
+
+          <li class="action-filter__item">
+            <button class="action-filter__buttton button" type="button">
+              Вечерний свет
+            </button>
+          </li>
+
+          <li class="action-filter__item">
+            <button class="action-filter__buttton button" type="button">
+              Рассвет
+            </button>
+          </li>
+        </ul>
+
+        <div class="toggle">
+          <!---->
+        </div>
+      </div>
+
+      <div class="modal__buttons">
+        <button class="modal__button modal__button--accept button" type="button">
+          Применить
+        </button>
+        <button class="modal__button modal__button--close button" type="button">
+          Закрыть
+        </button>
+      </div>
+    </section>
+  </div>
+
 
 </body>
 

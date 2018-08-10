@@ -1,0 +1,19 @@
+.footer-nav {
+  display: flex;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  font-size: 12px;
+}
+
+.footer-nav__item {
+  padding: 4px 5px;
+}
+
+.footer-nav__link {
+  color: $color-gray;
+}
+

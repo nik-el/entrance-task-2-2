@@ -1,0 +1,46 @@
+.summary {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 20px;
+
+  background: wheat;
+  border-radius: 20px;
+}
+
+.summary__now {
+  margin-right: 15px;
+}
+
+.summary__title {
+  font-weight: bold;
+  font-size: 27px;
+
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.summary__info {
+  margin: 0;
+  margin-bottom: 15px;
+
+  color: $color-dark-grey;
+  font-size: 14px;
+}
+
+.summary__weather-place {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 300;
+
+  color: $color-gray;
+}
+
+.summary__weather-temperature {
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.summary__scenario {
+  margin-bottom: 15px;
+}

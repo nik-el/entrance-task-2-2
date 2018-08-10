@@ -1,0 +1,25 @@
+.favorite__header {
+  display: flex;
+}
+
+.favorite__title {
+  margin-bottom: 20px;
+  margin-right: 13px;
+
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.favorite__scenarios {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.favorite__devices {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.favorite__scenario {
+  margin: 0 15px 15px 0;
+}
