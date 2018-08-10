@@ -7,6 +7,10 @@
   list-style: none;
 
   font-size: 12px;
+
+  @media (max-width: $mobile-width) {
+    flex-direction: column;
+  }
 }
 
 .footer-nav__item {

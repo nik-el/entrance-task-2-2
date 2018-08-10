@@ -13,6 +13,10 @@
   margin: 0;
 
   list-style: none;
+
+  @media (max-width: $tablet-width) {
+    display: none;
+  }
 }
 
 .main-nav__link {
@@ -35,4 +39,8 @@
 
 .main-nav--toggle {
   display: none;
+
+  @media (max-width: $tablet-width) {
+    display: block;
+  }
 }

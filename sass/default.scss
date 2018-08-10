@@ -8,6 +8,11 @@
   min-height: 708px;
   height: 100vh;
   font-family: $font-family;
+
+  @media (max-width: $laptop-width) {
+    height: 100%;
+    overflow-x: hidden;
+  }
 }
 
 .visually-hidden {

@@ -6,16 +6,28 @@
 
   margin: 30px 40px;
   margin-bottom: 0;
+
+  @media (max-width: $tablet-width) {
+    margin: 30px 20px;
+  }
 }
 
 .page-main__line-wrapper {
   display: flex;
 
   margin-bottom: 30px;
+
+  @media (max-width: $tablet-width) {
+    display: block;
+  }
 }
 
 .page-main__dashboard {
   max-width: 630px;
   margin-right: 25px;
+
+  @media (max-width: $tablet-width) {
+    margin-right: 0;
+  }
 }
 

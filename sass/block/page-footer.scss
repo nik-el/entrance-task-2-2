@@ -1,10 +1,19 @@
 .page-footer {
   display: flex;
-
-  margin: 0 40px;
-
   justify-content: space-between;
   height: 65px;
+  margin: 0 40px;
+
+  @media (max-width: $laptop-width) {
+    margin: 0 20px;
+  }
+
+  @media (max-width: $tablet-width) {
+    display: block;
+
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .page-footer__copyright {

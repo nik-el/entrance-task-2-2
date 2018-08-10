@@ -1,13 +1,31 @@
 .modal {
   display: none;
+  flex-direction: column;
   position: fixed;
 
-  top: 150px;
+  top: 120px;
   left: 50%;
 
   width: 630px;
+  height: 100%;
 
   margin-left: -315px;
+
+  &--show {
+    display: flex;
+  }
+
+  @media (max-width: $tablet-width) {
+    padding: 0 20px;
+    width: 100%;
+
+    margin: 0;
+    left: 0;
+  }
+
+  @media (max-width: $mobile-width) {
+    top: 20px;
+  }
 }
 
 .modal__title {
@@ -16,15 +34,19 @@
 
   font-weight: bold;
   font-size: 27px;
+
+  @media (max-width: $mobile-width) {
+    font-size: 18px;
+  }
 }
 
 .modal__schedule {
   font-size: 14px;
   color: $color-dark-grey;
-}
 
-.modal--show {
-  display: block;
+  @media (max-width: $mobile-width) {
+    font-size: 12px;
+  }
 }
 
 .modal__block {
@@ -36,11 +58,25 @@
 
   background-color: $color-white;
   border-radius: 20px;
+
+  @media (max-width: $tablet-width) {
+    min-width: 100%;
+  }
+
+  @media (max-width: $mobile-width) {
+    flex-grow: 1;
+    margin-bottom: 15px;
+  }
 }
 
 .modal__buttons {
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: $tablet-width) {
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
 }
 
 .modal__button {
@@ -49,6 +85,11 @@
 
   font-size: 18px;
   font-weight: bold;
+
+  @media (max-width: $tablet-width) {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 
   &--accept {
     background-color: $color-orange;
