@@ -1,8 +1,13 @@
 .dashboard {
   flex-basis: 630px;
+
+  @media (max-width: $laptop-width) {
+    flex-basis: 100%;
+  }
 }
 
 .dashboard__title {
+  margin: 0;
   margin-bottom: 20px;
 
   font-weight: bold;
@@ -10,6 +15,12 @@
 
   @media (max-width: $tablet-width) {
     display: none;
+  }
+}
+
+.dashboard__summary {
+  @media (max-width: $laptop-width) {
+    margin-bottom: 30px;
   }
 }
 

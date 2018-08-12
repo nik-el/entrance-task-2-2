@@ -2,18 +2,41 @@
   display: flex;
   justify-content: space-between;
 
-  padding: 20px;
+  width: 630px;
+  min-height: 330px;
+  max-height: 330px;
 
   background: wheat;
+  background-image: url("/image/bg@1x.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 20px;
+
+  overflow: hidden;
 
   @media (max-width: $tablet-width) {
     display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    background-image: url("/image/bg@2x.png");
+  }
+
+  @media (max-width: $mobile-width) {
+    min-height: 282px;
+    max-height: 282px;
   }
 }
 
 .summary__now {
-  margin-right: 15px;
+  margin: 25px 15px 0 25px;
+
+  @media (max-width: $mobile-width) {
+    margin: 20px 15px 0 20px;
+  }
 }
 
 .summary__title {
@@ -30,19 +53,28 @@
 
 .summary__info {
   margin: 0;
-  margin-bottom: 15px;
+  margin-bottom: 22px;
 
   color: $color-dark-grey;
   font-size: 14px;
 
   @media (max-width: $mobile-width) {
     font-size: 12px;
+    margin-bottom: 18px;
   }
 }
 
 .summary__weather {
+  border-collapse: collapse;
+  position: relative;
+  width: 160px;
+
   @media (max-width: $tablet-width) {
     margin-bottom: 20px;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: 140px;
   }
 }
 
@@ -52,13 +84,84 @@
   font-weight: 300;
 
   color: $color-gray;
+
+  @media (max-width: $mobile-width) {
+    font-size: 12px;
+  }
 }
 
 .summary__weather-temperature {
+  position: relative;
+
   font-weight: bold;
   font-size: 36px;
+
+  padding-top: 5px;
+
+  @media (max-width: $mobile-width) {
+    margin-bottom: 20px;
+
+    font-size: 23px;
+  }
+
+  &--rain::after {
+    content: '';
+
+    display: block;
+
+    position: absolute;
+    right: -14px;
+    top: 10px;
+
+    width: 28px;
+    height: 28px;
+
+    background-image: url("/image/icon_rain.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media (max-width: $mobile-width) {
+      right: 16px;
+      top: 8px;
+
+      width: 20px;
+      height: 20px;
+    }
+  }
 }
 
-.summary__scenario {
+.summary__cards {
+  display: block;
+
+  margin-right: 20px;
+
+  overflow-x: auto;
+
+  @media (max-width: $tablet-width) {
+    display: flex;
+    margin-right: 0;
+
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.summary__card {
   margin-bottom: 15px;
+
+  &:first-child {
+    margin-top: 20px;
+
+    @media (max-width: $tablet-width) {
+      margin-top: 0;
+    }
+
+    @media (max-width: $tablet-width) {
+      margin-left: 20px;
+    }
+  }
+
+  @media (max-width: $tablet-width) {
+    margin-right: 20px;
+  }
 }

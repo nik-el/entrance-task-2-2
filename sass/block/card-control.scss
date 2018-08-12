@@ -1,0 +1,31 @@
+.card-control {
+  display: flex;
+  justify-content: space-between;
+
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 45px;
+
+  align-items: center;
+}
+
+.card-control__button {
+  display: block;
+  width: 7px;
+  height: 14px;
+  border: 0;
+
+  background: rgba(0, 0, 0, 0) no-repeat center;
+  background-size: contain;
+
+  cursor: pointer;
+
+  &--next {
+    background-image: url("/image/arrow-right.svg");
+  }
+
+  &--prev {
+    background-image: url("/image/arrow-left.svg");
+  }
+}

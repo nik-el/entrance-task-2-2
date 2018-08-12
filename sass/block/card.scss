@@ -1,0 +1,86 @@
+.card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  width: 200px;
+  min-width: 200px;
+  height: 120px;
+
+  padding: 15px;
+
+  border-radius: 20px;
+  background: $color-light-gray;
+
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0.5);
+    background-color: $color-white;
+    transition: all 0.5s;
+  }
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    top: 17px;
+    left: 15px;
+
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &--scenario {
+    height: 100px;
+    padding-bottom: 6px;
+  }
+}
+
+.card--sun {
+  &::after {
+    background-image: url('/image/icon_sun.svg');
+  }
+
+  &.card--active::after {
+    background-image: url('/image/icon_sun_active.svg');
+  }
+}
+
+.card--temperature {
+  &::after {
+    background-image: url('/image/icon_temperature.svg');
+  }
+
+  &.card--active::after {
+    background-image: url('/image/icon_temperature_active.svg');
+  }
+}
+
+.card--time {
+  &::after {
+    background-image: url('/image/icon_time.svg');
+  }
+}
+
+.card__title {
+  font-weight: bold;
+  font-size: 14px;
+
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.card__schedule {
+  font-size: 12px;
+  color: $color-gray;
+
+  margin: 0;
+}

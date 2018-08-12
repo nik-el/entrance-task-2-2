@@ -4,6 +4,8 @@
   margin: 0;
   padding: 0;
 
+  align-items: center;
+
   list-style: none;
 
   font-size: 12px;
@@ -14,10 +16,25 @@
 }
 
 .footer-nav__item {
-  padding: 4px 5px;
+  padding: 4px 0;
+
+  @media (max-width: $mobile-width) {
+    width: 100%;
+    padding: 10px 0;
+  }
 }
 
 .footer-nav__link {
+  display: block;
+  padding-right: 12px;
+
   color: $color-gray;
+
+  text-decoration: none;
+
+  &:hover {
+    color: $color-dark-grey;
+    transition: color 0.5s;
+  }
 }
 

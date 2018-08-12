@@ -1,6 +1,8 @@
 .favorite {
   position: relative;
 
+  min-width: 168px;
+
   @media (max-width: $tablet-width) {
     // for hide mobile horizontal scroll
     &::after {
@@ -19,14 +21,44 @@
 
 .favorite__header {
   display: flex;
+
+  position: relative;
+
+  margin-bottom: 20px;
+
+  &--scenarios {
+    margin-bottom: 14px;
+  }
+
+  @media (max-width: $laptop-width) {
+    flex-direction: column;
+  }
 }
 
 .favorite__title {
-  margin-bottom: 20px;
+  margin: 0;
   margin-right: 13px;
 
   font-weight: bold;
   font-size: 18px;
+}
+
+.favorite__card-control {
+  @media (max-width: $laptop-width) {
+    display: none;
+  }
+}
+
+.favorite__filter {
+  position: relative;
+  top: -5px;
+
+  @media (max-width: $tablet-width) {
+    padding-top: 10px;
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 .favorite__scenarios {
@@ -34,7 +66,14 @@
   display: flex;
   flex-wrap: wrap;
 
+  max-height: 330px;
+  overflow-y: auto;
+
   -webkit-overflow-scrolling: touch;
+
+  @media (max-width: $laptop-width) {
+    max-height: none;
+  }
 
   @media (max-width: $mobile-width) {
     flex-wrap: nowrap;
@@ -45,6 +84,8 @@
 .favorite__devices {
   display: flex;
   flex-wrap: nowrap;
+
+  overflow-x: auto;
 
   -webkit-overflow-scrolling: touch;
 
@@ -59,6 +100,28 @@
   }
 }
 
-.favorite__scenario {
+.favorite__card {
   margin: 0 15px 15px 0;
+
+  &--scenario {
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+
+    @media (max-width: $full-laptop-width) {
+      &:nth-child(3n) {
+        margin-right: 15px;
+      }
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+
+    @media (max-width: $mobile-width) {
+      &:nth-child(2n) {
+        margin-right: 15px;
+      }
+    }
+  }
 }

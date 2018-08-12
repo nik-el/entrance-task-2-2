@@ -8,17 +8,27 @@
   margin-bottom: 0;
 
   @media (max-width: $tablet-width) {
-    margin: 30px 20px;
+    margin: 92px 20px 25px 20px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin: 68px 20px 0 20px;
   }
 }
 
 .page-main__line-wrapper {
   display: flex;
+  min-height: 370px;
+  margin-bottom: 36px;
 
-  margin-bottom: 30px;
-
-  @media (max-width: $tablet-width) {
+  @media (max-width: $laptop-width) {
     display: block;
+
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-bottom: 18px;
   }
 }
 
@@ -28,6 +38,12 @@
 
   @media (max-width: $tablet-width) {
     margin-right: 0;
+  }
+}
+
+.page-main__favorite {
+  @media (max-width: $laptop-width) {
+    max-width: 630px;
   }
 }
 

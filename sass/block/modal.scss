@@ -35,12 +35,16 @@
   font-weight: bold;
   font-size: 27px;
 
+  color: $color-dark-grey;
+
   @media (max-width: $mobile-width) {
     font-size: 18px;
   }
 }
 
 .modal__schedule {
+  margin-bottom: 20px;
+
   font-size: 14px;
   color: $color-dark-grey;
 
@@ -50,6 +54,8 @@
 }
 
 .modal__block {
+  position: relative;
+
   min-height: 238px;
   min-width: 630px;
 
@@ -67,6 +73,28 @@
     flex-grow: 1;
     margin-bottom: 15px;
   }
+}
+
+.modal__temperature-mode {
+  position: absolute;
+
+  margin: 0;
+  padding: 0;
+
+  font-weight: bold;
+  font-size: 36px;
+
+  right: 68px;
+  top: 26px;
+
+  @media (max-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.modal__action-filter {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
 }
 
 .modal__buttons {
