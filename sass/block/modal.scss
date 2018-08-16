@@ -7,20 +7,21 @@
   left: 50%;
 
   width: 630px;
-  height: 100%;
 
   margin-left: -315px;
 
+  z-index: 400;
   &--show {
     display: flex;
   }
 
   @media (max-width: $tablet-width) {
-    padding: 0 20px;
-    width: 100%;
-
     margin: 0;
     left: 0;
+
+    padding: 0 20px;
+    width: 100%;
+    height: 100%;
   }
 
   @media (max-width: $mobile-width) {
@@ -43,7 +44,8 @@
 }
 
 .modal__schedule {
-  margin-bottom: 20px;
+  margin: 0;
+  margin-bottom: 5px;
 
   font-size: 14px;
   color: $color-dark-grey;
@@ -54,6 +56,9 @@
 }
 
 .modal__block {
+  display: flex;
+  flex-direction: column;
+
   position: relative;
 
   min-height: 238px;
@@ -87,14 +92,37 @@
   right: 68px;
   top: 26px;
 
+  &::after {
+    content: '';
+    position: absolute;
+    right: -42px;
+    top: -2px;
+
+    display: block;
+    width: 42px;
+    height: 42px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &--temperature::after {
+    background-image: url('/image/icon_temperature_active.svg');
+  }
+
+  &--sun::after {
+    background-image: url('/image/icon_sun.svg');
+  }
+
   @media (max-width: $tablet-width) {
     display: none;
   }
 }
 
 .modal__action-filter {
-  margin-bottom: 15px;
-  padding-bottom: 10px;
+  margin: 16px 0 15px;
+  padding: 0 0 10px;
 }
 
 .modal__buttons {
@@ -135,3 +163,31 @@
     background-color: $color-light-gray;
   }
 }
+
+.animated {
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: .1s;
+  animation-delay: .1s;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.1, 0.1, 0.1);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+}
+
+
