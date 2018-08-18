@@ -25,6 +25,7 @@
   "devDependencies": {
     "autoprefixer": "^9.0.2",
     "browser-sync": "^2.24.6",
+    "csscomb": "^4.2.0",
     "gulp": "^3.9.1",
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",

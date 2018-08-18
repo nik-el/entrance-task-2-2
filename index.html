@@ -92,7 +92,7 @@
                       data-direct="up">
                 <span class="visually-hidden">Предыдущая карточка</span>
               </button>
-              <button class="summary__control-button summary__control-button--next"
+              <button class="summary__control-button summary__control-button--next summary__control-button--show"
                       type="button"
                       data-id="summary-control"
                       data-direct="down">
@@ -101,11 +101,11 @@
             <!--</div>-->
 
             <div class="summary__content">
-              <article class="card summary__card card--temperature ">
+              <article class="card summary__card card--temperature" data-id="floor">
                 <h3 class="card__title">
-                  Philips Cooler
+                  Xiaomi Warm Floor
                 </h3>
-                <p class="card__schedule">Начнет охлаждать в&nbsp;16:30</p>
+                <p class="card__schedule">Начнет шуметь в&nbsp;16:30</p>
               </article>
 
               <article class="card summary__card card--sun" data-id="xiaomi">
@@ -147,7 +147,7 @@
                     data-direct="prev">
               <span class="visually-hidden">Предыдущая карточка</span>
             </button>
-            <button class="card-control__button card-control__button--next card-control__button--next-scenario"
+            <button class="card-control__button card-control__button--next card-control__button--next-active card-control__button--next-scenario"
                     type="button"
                     data-id="scenarios-control"
                     data-direct="next">
@@ -322,13 +322,13 @@
         </div>
 
         <div class="favorite__card-control card-control">
-          <button class="card-control__button card-control__button--prev card-control__button--prev-devices"
+          <button class="card-control__button card-control__button--prev  card-control__button--prev-devices"
                   type="button"
                   data-id="devices-control"
                   data-direct="prev">
             <span class="visually-hidden">Предыдущая карточка</span>
           </button>
-          <button class="card-control__button card-control__button--next card-control__button--next-devices"
+          <button class="card-control__button  card-control__button--next card-control__button--next-active card-control__button--next-devices"
                   type="button"
                   data-id="devices-control"
                   data-direct="next">
@@ -515,17 +515,37 @@
 
   <div class="modal-wrapper" data-id="modal-wrapper">
     <!-- Xiaomi Warm Floor Modal-->
-    <section class="modal modal--temperature modal--active ">
+    <section class="modal modal--temperature modal--active modal--floor animated">
       <div class="modal__block">
         <div class="modal__header">
           <h3 class="modal__title">Xiaomi Warm Floor</h3>
           <p class="modal__schedule">Включено</p>
-          <p class="modal__temperature-mode"> +23</p>
+          <p class="modal__temperature-mode modal__temperature-mode--temperature"> +23</p>
         </div>
 
-        <div class="toggle">
-          <!---->
+        <div class="circle-toggle">
+          <div class="circle-toggle__thumb">
+          <span class="circle-toggle__thumb-value">+23</span>
+          <span class="circle-toggle__arrow"></span>
+          </div>
+
+          <svg class="circle-toggle__progress" width="220" height="220" viewBox="0 0 220 220">
+            <rect width="100%" height="100%" fill="white"/>
+            <circle class="circle-toggle__meter" cx="110" cy="110" r="99" stroke-width="22" />
+            <circle class="circle-toggle__value" cx="110" cy="110" r="99" stroke-width="22" />
+            <circle class="circle-toggle__bg" cx="110" cy="110" r="99" stroke-width="22" />
+            <defs>
+              <path d="M110 220a110 110 0 1 0 0-220 110 110 0 0 0 0 220z" id="a"/>
+
+              <mask id="b" x="0" y="0" width="220" height="220" fill="#fff">
+                <use xlink:href="#a"/>
+              </mask>
+            </defs>
+            <use mask="url(#b)" xlink:href="#a" stroke="#fff" stroke-width="48" fill="none" fill-rule="evenodd" opacity="1"
+                 stroke-dasharray="3 1"/>
+          </svg>
         </div>
+
       </div>
 
       <div class="modal__buttons">
@@ -539,7 +559,7 @@
     </section>
 
     <!--Elgato Eve Degree Connected Modal -->
-    <section class="modal modal--temperature modal--elegato modal--active">
+    <section class="modal modal--temperature modal--elegato modal--active animated">
       <div class="modal__block">
         <div class="modal__header">
           <h3 class="modal__title">Elgato Eve Degree Connected</h3>
@@ -577,16 +597,16 @@
         <div class="slider-toggle">
           <div class="slider-toggle__field slider-toggle__field--temperature">
             <div class="slider-toggle__range">
-              <span class="slider-toggle__range-value">–10</span>
-              <span class="slider-toggle__range-value">+30</span>
+              <span class="slider-toggle__range-value slider-toggle__range-value--min">–10</span>
+              <span class="slider-toggle__range-value slider-toggle__range-value--max">+30</span>
             </div>
             <div class="slider-toggle__control">
             </div>
             <input
               type="range"
               class="slider-toggle__input"
-              oninput="setValue(value, true)"
-              onchange="setValue(value, true)"
+              oninput="setValue(value, true, true)"
+              onchange="setValue(value, true, true)"
               orient="vertical"
               value="33"
               min="0"
@@ -606,7 +626,7 @@
     </section>
 
     <!--Xiaomi Yeelight LED Smart Bulb Modal -->
-    <section class="modal modal--sun modal--xiaomi animated zoomIn">
+    <section class="modal modal--sun modal--xiaomi animated">
       <div class="modal__block">
         <div class="modal__header">
           <h3 class="modal__title">Xiaomi Yeelight LED Smart Bulb</h3>
@@ -643,8 +663,8 @@
         <div class="slider-toggle">
           <div class="slider-toggle__field slider-toggle__field--sun">
             <div class="slider-toggle__range">
-              <span class="slider-toggle__range-value slider-toggle__range-value--min"></span>
-              <span class="slider-toggle__range-value slider-toggle__range-value--max"></span>
+              <span class="slider-toggle__range-value slider-toggle__range-value--min slider-toggle__range-value--dark"></span>
+              <span class="slider-toggle__range-value slider-toggle__range-value--max slider-toggle__range-value--light"></span>
             </div>
             <div class="slider-toggle__control">
             </div>

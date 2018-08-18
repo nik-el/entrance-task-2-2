@@ -1,10 +1,10 @@
 .footer-nav {
   display: flex;
+  align-items: center;
+  justify-content: center;
 
   margin: 0;
   padding: 0;
-
-  align-items: center;
 
   list-style: none;
 
@@ -26,15 +26,17 @@
 
 .footer-nav__link {
   display: block;
-  padding-right: 12px;
 
-  color: $color-gray;
+  padding-right: 12px;
 
   text-decoration: none;
 
+  color: $color-gray;
+
   &:hover {
-    color: $color-dark-grey;
     transition: color 0.5s;
+
+    color: $color-dark-grey;
   }
 }
 

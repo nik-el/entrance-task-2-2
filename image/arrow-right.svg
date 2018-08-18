@@ -6,7 +6,7 @@
   </defs>
   <g fill="none" fill-rule="evenodd">
     <path fill="#none" d="M-1283-608H83v829h-1366z"/>
-    <g  transform="matrix(-1 0 0 1 13 -1), rotate(180 8 8)" opacity="1">
+    <g  transform="matrix(-1 0 0 1 13 -1), rotate(180 8 8)" opacity=".3">
       <path d="M0 0h15v16H0z"/>
       <use fill="#333333" fill-rule="nonzero" transform="matrix(0 1 1 0 -.363 .363)" xlink:href="#a"/>
     </g>

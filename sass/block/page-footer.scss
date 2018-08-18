@@ -1,6 +1,7 @@
 .page-footer {
   display: flex;
   justify-content: space-between;
+
   height: 65px;
   margin: 0 40px;
 
@@ -8,15 +9,20 @@
     margin: 0 20px;
   }
 
-  @media (max-width: $tablet-width) {
+  @media (max-width: $laptop-width) {
     display: block;
-
     align-items: center;
+
     text-align: center;
   }
 }
 
 .page-footer__copyright {
-  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   color: $color-gray;
+
+  font-size: 12px;
 }

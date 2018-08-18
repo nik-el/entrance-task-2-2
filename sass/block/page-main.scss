@@ -1,7 +1,6 @@
 .page-main {
   display: flex;
   flex-direction: column;
-
   flex-grow: 1;
 
   margin: 30px 40px;
@@ -18,6 +17,7 @@
 
 .page-main__line-wrapper {
   display: flex;
+
   min-height: 370px;
   margin-bottom: 36px;
 
@@ -36,14 +36,13 @@
   max-width: 630px;
   margin-right: 25px;
 
-  @media (max-width: $tablet-width) {
+  @media (max-width: $laptop-width) {
+    max-width: inherit;
     margin-right: 0;
   }
-}
 
-.page-main__favorite {
-  @media (max-width: $laptop-width) {
-    max-width: 630px;
+  @media (max-width: $tablet-width) {
+    margin-right: 0;
   }
 }
 

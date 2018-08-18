@@ -1,10 +1,10 @@
 .button {
-  font-weight: bold;
-  font-size: 13px;
+  cursor: pointer;
 
-  background-color: $color-light-gray;
   border: 0;
   border-radius: 20px;
+  background-color: $color-light-gray;
 
-  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
 }

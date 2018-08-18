@@ -1,29 +1,26 @@
 .page-header {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: flex-start;
 
   height: 92px;
   min-height: 92px;
-
   padding: 0 40px;
 
   box-shadow: 0 1px rgba(0, 0, 0, 0.1);
 
   @media (max-width: $tablet-width) {
     position: fixed;
+    z-index: 200;
 
     justify-content: space-between;
 
-    padding: 0;
-    margin: 0 20px;
-
     width: calc(100% - 40px);
+    margin: 0 20px;
+    padding: 0;
 
     background-color: $color-white;
     box-shadow: 0 0;
-
-    z-index: 200;
   }
 
   @media (max-width: $mobile-width) {
@@ -37,9 +34,9 @@
   height: 27px;
 
   background-image: url('/image/yandex_logo.svg');
-  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
 }
 
 .page-header__nav {

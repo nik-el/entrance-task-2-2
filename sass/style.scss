@@ -1,8 +1,10 @@
 @import "variables";
 @import "default";
+@import "block/body";
 // components
 @import "block/button";
 @import "block/slider-toggle";
+@import "block/circle-toggle";
 // page content
 @import "block/page-header";
 @import "block/page-main";

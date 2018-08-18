@@ -1,23 +1,24 @@
 .summary {
   position: relative;
+
   display: flex;
+  overflow: hidden;
   justify-content: space-between;
 
   width: 630px;
   min-height: 330px;
   max-height: 330px;
 
+  border-radius: 20px;
   background: wheat;
   background-image: url("/image/bg@1x.png");
-  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 20px;
+  background-size: cover;
 
-  overflow: hidden;
-
-  @media (max-width: $tablet-width) {
+  @media (max-width: $laptop-width) {
     display: block;
+
     width: 100%;
     max-width: 100%;
   }
@@ -41,11 +42,11 @@
 }
 
 .summary__title {
-  font-weight: bold;
-  font-size: 27px;
-
   margin: 0;
   margin-bottom: 5px;
+
+  font-size: 27px;
+  font-weight: bold;
 
   @media (max-width: $mobile-width) {
     font-size: 18px;
@@ -57,20 +58,24 @@
   margin-bottom: 22px;
 
   color: $color-dark-grey;
+
   font-size: 14px;
 
   @media (max-width: $mobile-width) {
-    font-size: 12px;
     margin-bottom: 18px;
+
+    font-size: 12px;
   }
 }
 
 .summary__weather {
-  border-collapse: collapse;
   position: relative;
+
   width: 160px;
 
-  @media (max-width: $tablet-width) {
+  border-collapse: collapse;
+
+  @media (max-width: $laptop-width) {
     margin-bottom: 20px;
   }
 
@@ -81,10 +86,11 @@
 
 .summary__weather-place {
   text-align: left;
-  font-size: 14px;
-  font-weight: 300;
 
   color: $color-gray;
+
+  font-size: 14px;
+  font-weight: 300;
 
   @media (max-width: $mobile-width) {
     font-size: 12px;
@@ -94,10 +100,10 @@
 .summary__weather-temperature {
   position: relative;
 
-  font-weight: bold;
-  font-size: 36px;
-
   padding-top: 5px;
+
+  font-size: 36px;
+  font-weight: bold;
 
   @media (max-width: $mobile-width) {
     margin-bottom: 20px;
@@ -106,25 +112,25 @@
   }
 
   &--rain::after {
-    content: '';
+    position: absolute;
+    top: 10px;
+    right: -14px;
 
     display: block;
-
-    position: absolute;
-    right: -14px;
-    top: 10px;
 
     width: 28px;
     height: 28px;
 
+    content: '';
+
     background-image: url("/image/icon_rain.svg");
-    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 
     @media (max-width: $mobile-width) {
-      right: 16px;
       top: 8px;
+      right: 16px;
 
       width: 20px;
       height: 20px;
@@ -134,93 +140,108 @@
 
 .summary__cards {
   display: block;
-
-  margin-right: 20px;
-
   overflow-x: auto;
   overflow-y: hidden;
 
-  @media (max-width: $tablet-width) {
-    display: flex;
-    margin-right: 0;
+  min-width: 200px;
+  margin-right: 20px;
 
+  @media (max-width: $laptop-width) {
+    display: flex;
     -webkit-overflow-scrolling: touch;
+
+    margin-right: 0;
   }
 }
 
 .summary__card {
   margin-bottom: 15px;
 
+  @media (max-width: $laptop-width) {
+    margin-bottom: 0;
+  }
+
   &:first-child {
     margin-top: 20px;
 
-    @media (max-width: $tablet-width) {
+    @media (max-width: $laptop-width) {
       margin-top: 0;
-    }
-
-    @media (max-width: $tablet-width) {
       margin-left: 20px;
     }
   }
 
-  @media (max-width: $tablet-width) {
+  @media (max-width: $laptop-width) {
     margin-right: 20px;
+  }
+}
+
+.summary__content {
+  @media (max-width: $laptop-width) {
+    display: flex;
   }
 }
 
 .summary__control {
   position: absolute;
-
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
 }
 
 .summary__control-button {
   position: absolute;
+  z-index: 99;
 
-  display: block;
+  display: none;
 
   width: 200px;
   height: 40px;
 
-  background: $color-light-gray no-repeat center;
-  background-size: contain;
-  border: 0;
-
-  z-index: 99;
-
   cursor: pointer;
 
+  border: 0;
+  background: $color-light-gray no-repeat center;
+  background-size: contain;
+
+  &--show {
+    display: block;
+  }
+
+  @media (max-width: $laptop-width) {
+    display: none;
+  }
+
   &::after {
-    content: '';
     position: absolute;
-    right: 96px;
     top: 16px;
+    right: 96px;
+
     display: block;
 
     width: 16px;
     height: 16px;
 
+    content: '';
   }
 
   &--prev {
     top: 0;
+
     border-radius: 0 0 20px 20px;
+
     &::after {
       background-image: url("/image/icon-double-bottom.svg");
     }
   }
 
-
   &--next {
     bottom: 0;
+
     border-radius: 20px 20px 0 0;
 
     &::after {
       background-image: url("/image/icon-double-top.svg");
     }
   }
-
 }

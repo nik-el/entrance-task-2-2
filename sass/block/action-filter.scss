@@ -37,7 +37,9 @@
   display: none;
 
   &:checked + .action-filter__item {
-    order: -1;
+    @media (max-width: $mobile-width) {
+      order: -1;
+    }
   }
 
   &:checked + .action-filter__item .action-filter__button {
