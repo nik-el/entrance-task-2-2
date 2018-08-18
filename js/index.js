@@ -191,7 +191,7 @@ modalWrapper.addEventListener('click', (event) => {
 
 // Input Range
 const getCurrentWindowWidth = () => {
-  let currentWindow = window
+  let currentWindow = window;
   let device = 'inner';
   if (!('innerWidth' in window )) {
     device = 'client';

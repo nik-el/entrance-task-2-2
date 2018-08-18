@@ -1204,7 +1204,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
       -webkit-box-ordinal-group: 0;
           -ms-flex-order: -1;
               order: -1; } }
-  .action-filter input[type="radio"]:checked + .action-filter__item .action-filter__button {
+  .action-filter input[type="radio"]:checked + .action-filter__label .action-filter__button {
     background-color: #ffd93e;
     -webkit-transition: background-color 0.5s;
     transition: background-color 0.5s; }

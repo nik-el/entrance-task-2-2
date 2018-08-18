@@ -42,7 +42,7 @@
     }
   }
 
-  &:checked + .action-filter__item .action-filter__button {
+  &:checked + .action-filter__label .action-filter__button {
     background-color: $color-orange;
     transition: background-color 0.5s;
   }

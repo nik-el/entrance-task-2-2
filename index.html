@@ -273,27 +273,27 @@
         <div class="favorite__filter">
           <ul class="action-filter favorite__filter-items">
 
-            <input type="radio" id="all" value="all" name="place-filter" checked>
             <li class="action-filter__item">
-              <label for="all">
+            <input type="radio" id="all" value="all" name="place-filter" checked>
+              <label for="all" class="action-filter__label">
                 <span role="button" class="action-filter__button button">
                   Все
                 </span>
               </label>
             </li>
 
-            <input type="radio" id="kitchen" value="kitchen" name="place-filter">
             <li class="action-filter__item">
-              <label for="kitchen">
+              <input type="radio" id="kitchen" value="kitchen" name="place-filter">
+              <label for="kitchen" class="action-filter__label">
                 <span role="button" class="action-filter__button button">
                   Кухня
                 </span>
               </label>
             </li>
 
-            <input type="radio" value="hall" id="hall" name="place-filter">
             <li class="action-filter__item">
-              <label for="hall">
+              <input type="radio" value="hall" id="hall" name="place-filter">
+              <label for="hall" class="action-filter__label">
                 <input type="radio" value="hall" name="place-filter">
                 <span role="button" class="action-filter__button button">
                   Зал
@@ -301,18 +301,18 @@
               </label>
             </li>
 
-            <input type="radio" value="bulbs" id="bulbs" name="place-filter">
             <li class="action-filter__item">
-              <label for="bulbs">
+              <input type="radio" value="bulbs" id="bulbs" name="place-filter">
+              <label for="bulbs" class="action-filter__label">
                 <span role="button" class="action-filter__button button">
                   Лампочки
                 </span>
               </label>
             </li>
 
-            <input type="radio" id="cameras" value="cameras" name="place-filter">
             <li class="action-filter__item">
-              <label for="cameras">
+              <input type="radio" id="cameras" value="cameras" name="place-filter">
+              <label for="cameras" class="action-filter__label">
                 <span role="button" class="action-filter__button button">
                   Камеры
                 </span>
@@ -602,7 +602,9 @@
             </div>
             <div class="slider-toggle__control">
             </div>
+            <label class="visually-hidden" for="slider-elgato">Слайдер Elgato Eve Degree Connected</label>
             <input
+              id="slider-elgato"
               type="range"
               class="slider-toggle__input"
               oninput="setValue(value, true, true)"
@@ -668,7 +670,16 @@
             </div>
             <div class="slider-toggle__control">
             </div>
-            <input type="range" class="slider-toggle__input" oninput="setValue(value, false)" value="0"  onchange="setValue(value, false)" orient="vertical" min="0" max="40" />
+            <label class="visually-hidden" for="slider-xiaomi">Слайдер Xiaomi Yeelight LED Smart Bulb</label>
+            <input
+              id="slider-xiaomi"
+              type="range"
+              class="slider-toggle__input"
+              oninput="setValue(value, false)"
+              value="0"
+              onchange="setValue(value, false)"
+              orient="vertical" min="0"
+              max="40" />
           </div>
         </div>
       </div>
