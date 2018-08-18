@@ -1,3 +1,6 @@
+const MOBILE_WIDTH = 414;
+let isVertical = false;
+
 const DIRECT = {
   NEXT: {
     side: 'left',
@@ -15,23 +18,36 @@ const DIRECT = {
     side: 'top',
     direction: -1,
   },
-}
+};
+
 const MODALS = {
   elegato: document.querySelector('.modal--elegato'),
   xiaomi: document.querySelector('.modal--xiaomi'),
+  floor: document.querySelector('.modal--floor'),
 };
 
 //по условию размер карточки фиксирован
 const CARD_WIDTH = 215;
 const SUMMARY_CARD_HEIGHT = 120;
 
+
+const body = document.querySelector('.body');
+const header = document.querySelector('.page-header');
+const main = document.querySelector('.page-main');
+const footer = document.querySelector('.page-footer');
+
+
 const cards = document.querySelectorAll('.card');
 const controlButtons = document.querySelectorAll('.card-control__button');
 const controlButtonsSummary = document.querySelectorAll('.summary__control-button');
+
 const devicesContainer = document.querySelector('.favorite__devices');
 const scenariosContainer = document.querySelector('.favorite__scenarios');
 const summaryCardsContainer = document.querySelector('.summary__cards');
 
+
+
+// scroll
 const getCurrentContainer = (id) => {
   if (id === 'devices-control') {
     return devicesContainer;
@@ -64,11 +80,12 @@ const scrollToDistance = (container, containerSize, contentSize, scrollDirect) =
   if (container.scrollLeft > distance) {
     return
   }
+
   if (distance > containerSize) {
     distance = containerSize + (containerSize % CARD_WIDTH);
   }
 
-  container.scrollBy({[scrollDirect.side]: distance * scrollDirect.direction, behavior: 'smooth' })
+  container.scrollBy({[scrollDirect.side]: distance * scrollDirect.direction, behavior: 'smooth' });
 };
 
 
@@ -102,14 +119,10 @@ for (const control of controlButtonsSummary) {
   });
 }
 
-
-
-//-=================================
+// Modal
 
 const modalButtons = document.querySelectorAll('.modal__button');
 const modalWrapper = document.querySelector('.modal-wrapper');
-
-
 let currentModal = null;
 
 document.addEventListener('keydown', (event)=> {
@@ -124,41 +137,20 @@ for (const button of modalButtons) {
   });
 }
 
-
-
-
 for (const card of cards) {
-  card.addEventListener('click', (event) => {
+  card.addEventListener('click', () => {
     if (MODALS[card.dataset.id]) {
-
-      // console.log(event);
-      // const body = document.querySelector('body')
-      // console.log(body);
-      //
-      // console.log('card', card.getBoundingClientRect());
-      // cardRect = body.getBoundingClientRect();
-      //
-      // const top = event.clientY - cardRect.top;
-      // const left = event.clientX - cardRect.left;
-      //
-      // console.log(top);
-      // console.log(left);
-      //
-      // // document.documentElement.style.setProperty(`--card-top`, event.clientY + 'px');
-      // // document.documentElement.style.setProperty(`--card-left`, event.clientX + 'px');
-      // document.documentElement.style.setProperty(`--card-top`, 0 + 'px');
-      // document.documentElement.style.setProperty(`--card-left`, 0 + 'px');
-
       openModal(card.dataset.id);
     }
   })
 }
 
-
-
-
-
-
+const toggleBlur = () => {
+  header.classList.toggle('blur-active');
+  main.classList.toggle('blur-active');
+  footer.classList.toggle('blur-active');
+  body.classList.toggle('body--modal-open');
+};
 
 const openModal = (id) => {
   currentModal = id;
@@ -166,13 +158,26 @@ const openModal = (id) => {
   MODALS[id].classList.add('modal--show');
   MODALS[id].classList.add('zoomIn');
   modalWrapper.classList.add('modal-wrapper--show');
+
+  toggleBlur();
+
+  if (getCurrentWindowWidth() < MOBILE_WIDTH) {
+    isVertical = true;
+  } else {
+    isVertical = false;
+  }
+
   getValue(id);
 };
 
 const closeModal = () => {
+  toggleBlur();
+
   modalWrapper.classList.remove('modal-wrapper--show');
   if (currentModal) {
+    MODALS[currentModal].classList.remove('zoomIn');
     MODALS[currentModal].classList.remove('modal--show');
+
     currentModal = null;
   }
 };
@@ -184,19 +189,40 @@ modalWrapper.addEventListener('click', (event) => {
   closeModal();
 });
 
-const getValue = (id) => {
-  const modalComponent = MODALS[id];
-
-  let rangeValue = 0;
-  rangeValue = modalComponent.querySelector('.slider-toggle__input').value;
-
-  setValue(rangeValue);
+// Input Range
+const getCurrentWindowWidth = () => {
+  let currentWindow = window
+  let device = 'inner';
+  if (!('innerWidth' in window )) {
+    device = 'client';
+    currentWindow = document.documentElement || document.body;
+  }
+  return currentWindow[ device+'Width' ];
 };
 
-const setValue = (value, temp) => {
+const getValue = (id) => {
+  const modalComponent = MODALS[id];
+  let isTemperature = false;
+
+  if (modalComponent.classList.contains('modal--temperature')) {
+    isTemperature = true;
+  }
+
+  const range = modalComponent.querySelector('.slider-toggle__input');
+  let rangeValue = 0;
+  if (!range) {
+    return
+  }
+  rangeValue = range.value;
+
+
+  setValue(rangeValue, isTemperature);
+};
+
+const setValue = (value, isTemperature) => {
   const currentModal = document.querySelector('.modal--show');
 
-  if (temp) {
+  if (isTemperature) {
     const mode = currentModal.querySelector('.modal__temperature-mode');
     const temperature = value - 10;
     if (temperature > 0) {
@@ -205,13 +231,18 @@ const setValue = (value, temp) => {
       mode.innerText = temperature;
     }
   }
-  const slider = currentModal.querySelector('.slider-toggle__input');
 
+  const slider = currentModal.querySelector('.slider-toggle__input');
   const control = currentModal.querySelector('.slider-toggle__control');
   const field = currentModal.querySelector('.slider-toggle__field');
-  const controlWidth = parseInt(getComputedStyle(control).width);
-  const fieldWidth = parseInt(getComputedStyle(field).width) - controlWidth;
+  const controlSize = isVertical ? parseInt(getComputedStyle(control).height) : parseInt(getComputedStyle(control).width);
+  const fieldWidth = isVertical ? parseInt(getComputedStyle(field).height) - controlSize : parseInt(getComputedStyle(field).width) - controlSize;
   const controlStep = fieldWidth / slider.max;
 
-  control.style.left = `${(value * controlStep)}px`;
+  if (!isVertical) {
+    control.style.left = `${(value * controlStep)}px`;
+  } else {
+    control.style.bottom = `${(value * controlStep)}px`;
+  }
+
 };

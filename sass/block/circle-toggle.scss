@@ -1,0 +1,74 @@
+.circle-toggle {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+}
+
+.circle-toggle__thumb {
+  position: absolute;
+  z-index: 200;
+  top: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 178px;
+  height: 178px;
+
+  border-radius: 50%;
+  box-shadow: 0 2px 4px 0 rgba(134, 121, 71, 0.45);
+}
+
+.circle-toggle__thumb-value {
+  font-size: 66px;
+  font-weight: bold;
+}
+
+.circle-toggle__arrow {
+  position: absolute;
+  top: 4px;
+
+  display: block;
+
+  width: 178px;
+  height: 178px;
+
+  transform: rotate(17deg);
+  transform-origin: 50% 50%;
+
+  background-image: url("/image/icon_arrow-circle.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 10px 10px;
+}
+
+.circle-toggle__progress {
+  transform: rotate(-90deg);
+}
+
+.circle-toggle__meter,
+.circle-toggle__value,
+.circle-toggle__bg {
+  fill: none;
+}
+
+.circle-toggle__meter {
+  stroke: #e6e6e6;
+}
+
+.circle-toggle__value {
+  stroke: $circle-value;
+  stroke-dasharray: 330.292;
+  stroke-dashoffset: 298.577;
+}
+
+.circle-toggle__bg {
+  transform: rotate(145deg);
+  transform-origin: 50% 50%;
+
+  stroke: $color-white;
+  stroke-dasharray: 159.292 2222;
+  stroke-dashoffset: 22%;
+}

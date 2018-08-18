@@ -1,34 +1,45 @@
 $color-temperature: linear-gradient(90deg, #068fff 2%, #ffd800 51%, #f76b1c 100%);
+$color-temperature-v: linear-gradient(0deg, #068fff 2%, #ffd800 51%, #f76b1c 100%);
 $color-sun: linear-gradient(85deg, #ffe682 2%, #ff9e00 98%);
+$color-sun-v: linear-gradient(0deg, #ffe682 2%, #ff9e00 98%);
 
 .slider-toggle {
   display: flex;
   flex-direction: column;
 
-
-  @media (max-width: $tablet-width) {
+  @media (max-width: $mobile-width) {
     align-items: center;
     flex-grow: 1;
   }
 }
 
 .slider-toggle__field {
+  position: relative;
+
   display: flex;
   flex-grow: 1;
 
   height: 60px;
-  position: relative;
+
   border-radius: 30px;
 
   &--temperature {
     background-image: $color-temperature;
+
+    @media (max-width: $mobile-width) {
+      background-image: $color-temperature-v;
+    }
   }
 
   &--sun {
     background-image: $color-sun;
+
+    @media (max-width: $mobile-width) {
+      background-image: $color-sun-v;
+    }
   }
 
-  @media (max-width: $tablet-width) {
+  @media (max-width: $mobile-width) {
     width: 60px;
     height: 100%;
   }
@@ -42,122 +53,218 @@ $color-sun: linear-gradient(85deg, #ffe682 2%, #ff9e00 98%);
   width: 68px;
   height: 68px;
 
-  border-radius: 50%;
-  border: 4px solid $color-white;
-
   cursor: pointer;
 
+  border: 4px solid $color-white;
+  border-radius: 50%;
+
+  @media (max-width: $mobile-width) {
+    left: -4px;
+  }
+
   &::before {
-    content: '';
     position: absolute;
-    display: block;
-
-    background: none;
-    border: 3px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
-    pointer-events: none;
+    left: 0;
+
+    display: block;
+
+    content: '';
+
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    background: none;
   }
 }
 
 .slider-toggle__range {
   display: flex;
+  align-items: center;
+  flex-grow: 1;
   justify-content: space-between;
 
-  flex-grow: 1;
-
-  align-items: center;
   color: $color-white;
-  font-weight: bold;
+
   font-size: 18px;
+  font-weight: bold;
 
   @media (max-width: $mobile-width) {
-    //flex-direction: column-reverse;
+    flex-direction: column-reverse;
   }
 }
 
 .slider-toggle__range-value {
-  padding: 20px;
-
   user-select: none;
 
-  background-size: 36px 36px;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: 36px 36px;
 
-  &--min::after {
-    content: '';
+  line-height: 36px;
+
+  &--min {
+    position: relative;
+    top: 6px;
+    left: 12px;
 
     display: block;
 
-    width: 36px;
-    height: 36px;
+    width: 46px;
+    height: 46px;
+    //background-position: 12px 6px;
+
+    @media (max-width: $mobile-width) {
+      top: 0;
+      left: 6px;
+    }
   }
 
   &--max {
+    position: relative;
+    top: 6px;
 
+    display: block;
+
+    width: 46px;
+    height: 46px;
+
+    @media (max-width: $mobile-width) {
+      top: 12px;
+      left: 6px;
+    }
   }
 
-  //&--dark {
-  //  padding-left: 10px;
-  //  background-image: url("/image/icon_sun_min.svg");
-  //  background-position: 2px 2px;
-  //
-  //}
-  //
-  //&--light {
-  //  padding-right: 10px;
-  //  background-image: url("/image/icon_sun_max.svg");
-  //  background-position: -2px 2px;
-  //
-  //}
+  &--dark {
+    top: 0;
+
+    background-image: url("/image/icon_sun_min.svg");
+
+    @media (max-width: $mobile-width) {
+      top: -6px;
+      left: 0;
+    }
+  }
+
+  &--light {
+    top: 0;
+    right: 12px;
+
+    background-image: url("/image/icon_sun_max.svg");
+
+    @media (max-width: $mobile-width) {
+      top: 6px;
+      right: 0;
+      left: 0;
+    }
+  }
 }
 
 .slider-toggle__input {
   cursor: pointer;
 }
+// for reset default input range
 
-input[type=range].slider-toggle__vertical {
-  -webkit-appearance: slider-vertical;
-  writing-mode: bt-lr; /* IE */
-  opacity:0.01; /* needed to hide the default slider-vertical appearance */
-}
 
-input[type=range]::-ms-track {
-  width:100%;height:100%;
-  -webkit-appearance:none;margin:0px;padding:0px;border:0 none;
-  background:transparent;color:transparent;overflow:visible;
-}
-input[type=range]::-moz-range-track {
-  width:100%;height:100%;
-  -moz-appearance:none;margin:0px;padding:0px;border:0 none;
-  background:transparent;color:transparent;overflow:visible;
-}
 input[type=range] {
   position: absolute;
   top: 0;
-  width:100%;height:100%;
-  -webkit-appearance:none;margin:0px;padding:0px;border:0 none;
-  background:transparent;color:transparent;overflow:visible;
+  overflow: visible;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: transparent;
+  border: 0 none;
+  background: transparent;
+
+  -webkit-appearance: none;
+}
+
+@media (max-width: $mobile-width) {
+  input[type=range].slider-toggle__input {
+    opacity: 0.01; /* needed to hide the default slider-vertical appearance */
+
+    -webkit-appearance: slider-vertical;
+    writing-mode: bt-lr; /* IE */
+  }
+}
+
+/* microsoft IE10+ and Edge - eliminates default fills before and after thumb */
+input[type=range]::-ms-fill-lower {
+  border: 0 none;
+  background: transparent;
+}
+
+input[type=range]::-ms-fill-upper {
+  border: 0 none;
+  background: transparent;
+}
+
+input[type=range]::-ms-tooltip {
+  display: none;
+}
+
+input[type=range]::-ms-track {
+  overflow: visible;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: transparent;
+  border: 0 none;
+  background: transparent;
+
+  -webkit-appearance: none;
+}
+
+input[type=range]::-moz-range-track {
+  overflow: visible;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: transparent;
+  border: 0 none;
+  background: transparent;
+
+  -moz-appearance: none;
+}
+
+input[type=range]::-ms-thumb {
+  width: 40px;
+  height: 40px;
+  border: 0 none;
+  border-radius: 0;
+  background: transparent;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 40px;
+  height: 40px;
+  border: 0 none;
+  border-radius: 0;
+  background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  width: 40px;
+  height: 40px;
+  border: 0 none;
+  border-radius: 0;
+  background: transparent;
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background:transparent;border:transparent;}
-input[type=range]:focus {outline: none;}
-
-/* Make the thumbs the same size as your custom sliderthumb.
-	they will not be visible but they will be draggable. 	*/
-input[type=range]::-ms-thumb {width:40px;height:40px;
-  border-radius:0px;border:0 none;background:transparent;}
-input[type=range]::-moz-range-thumb {width:40px;height:40px;
-  border-radius:0px;border:0 none;background:transparent;}
-input[type=range]::-webkit-slider-thumb {width:40px;height:40px;
-  border-radius:0px;border:0 none;background:transparent;-webkit-appearance:none;}
-
-/* microsoft IE10+ and Edge - eliminates default fills before and after thumb */
-input[type=range]::-ms-fill-lower {background:transparent;border:0 none;}
-input[type=range]::-ms-fill-upper {background:transparent;border:0 none;}
-input[type=range]::-ms-tooltip { display: none;}
+  border: transparent;
+  background: transparent;
+}
